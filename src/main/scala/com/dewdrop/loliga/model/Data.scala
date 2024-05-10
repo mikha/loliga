@@ -10,8 +10,8 @@ object Data {
 
   object SeasonData extends Season {
     override val name = "LOLiga: 22-й сезон"
-    override val version = "1.0"
-    override val participantsOnly: Boolean = true
+    override val version = "1.1"
+    override val participantsOnly: Boolean = false
 
     private object TeamsWithMinutes {
       // @formatter:off
