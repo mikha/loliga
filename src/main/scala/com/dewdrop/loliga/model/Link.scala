@@ -19,6 +19,10 @@ object Link {
     params = ("p" -> "refl") +: params
   )
 
+  private case object NoLink extends Link {
+    override def address: String = ""
+  }
+
   def apply(t: String, j: Int, z: String): Link =
     PlugLink(Seq("t" -> t, "j" -> j.toString, "z" -> z))
 
@@ -33,9 +37,14 @@ object Link {
   def team(j: Int, z: String): Link =
     apply(t = "k", j = j, z = z)
 
+  def nationTeam(j: Int, z: String): Link =
+    new LinkImpl("plug.php", Seq("p" -> "nation", "t" -> "k", "n" -> "i", "j" -> j.toString, "z" -> z))
+
   def tournament(j: Int, f: Int, z: String): Link =
     apply(t = "ss", k = 0, j = j, f = f, z = z)
 
   def round(j: Int, n: Int, z: String): Link =
     apply(t = "x", j = j, n = n, z = z)
+
+  val noLink: Link = NoLink
 }

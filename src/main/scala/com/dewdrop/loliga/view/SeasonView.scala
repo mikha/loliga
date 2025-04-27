@@ -2,23 +2,25 @@ package com.dewdrop.loliga.view
 
 import com.dewdrop.loliga.model._
 import org.scalajs.dom
-import org.scalajs.dom.html.{Element, Select}
+import org.scalajs.dom.html.{Element, Input, Select}
 
 import scala.scalajs.js.Date
 import scalatags.JsDom
 import scalatags.JsDom.all._
 
-case class SeasonView(season: Season) extends View {
-  private val allFixtures =
-    season.fixtureList.filter(_._2.nonEmpty)
+case class SeasonView(season: Season, tournament: Tournament) extends View {
   private val fixtureListWithPastView =
-    FixtureListWithPastView(allFixtures, LocalDate(new Date(Date.now()))) _
+    FixtureListWithPastView(season.fixtureList, LocalDate(new Date(Date.now()))) _
   private val teamSelector = TeamSelector(season.teams).view().render
   private val fixtureListContainer = div(
     fixtureListWithPastView(
-      fixtures => FixtureListView(fixtures, season.participantsOnly)
+      fixtures => FixtureListView(fixtures.filter(tournamentOnlyFixture), season.participantsOnly)
     ).view()
   ).render
+
+  private def tournamentOnlyFixture(fixture: (TournamentRound, Seq[Fixture])): Boolean =
+    fixture._1.tournament == tournament
+
   override def view(): JsDom.all.ConcreteHtmlTag[Element] = {
     teamSelector.onchange = (_: dom.Event) => {
       val teamName = teamSelector.value
@@ -26,11 +28,11 @@ case class SeasonView(season: Season) extends View {
       val newView =
         if (teamName.nonEmpty)
           fixtureListWithPastView(
-            fixtures => CondensedFixtureListView(fixtures, teamName)
+            fixtures => CondensedFixtureListView(fixtures, teamName, tournament)
           )
         else
           fixtureListWithPastView(
-            fixtures => FixtureListView(fixtures, season.participantsOnly)
+            fixtures => FixtureListView(fixtures.filter(tournamentOnlyFixture), season.participantsOnly)
           )
       fixtureListContainer.appendChild(newView.view().render)
     }
@@ -52,7 +54,7 @@ case class TeamSelector(teams: Seq[Team]) extends View {
     )
 }
 
-case class FixtureListView(fixtureList: FixtureList, participantsOnly: Boolean) extends View {
+case class FixtureListView(fixtureList: Seq[FixtureRound], participantsOnly: Boolean) extends View {
   private val children = fixtureList.map {
     case (round, fixtures) =>
       TournamentRoundView(
@@ -62,6 +64,7 @@ case class FixtureListView(fixtureList: FixtureList, participantsOnly: Boolean) 
   }
   private val elem =
     div(paddingTop := "20px", for (child <- children) yield child.view())
+
   override def view(): JsDom.all.ConcreteHtmlTag[Element] = elem
 }
 
@@ -77,6 +80,7 @@ case class TournamentRoundView(round: TournamentRound,
     ),
     for (child <- children) yield child.view()
   )
+
   override def view(): JsDom.all.ConcreteHtmlTag[Element] = elem
 }
 
@@ -94,6 +98,7 @@ case class FixtureView(fixture: Fixture, round: TournamentRound) extends View {
       visitor
     )
   )
+
   override def view(): JsDom.all.ConcreteHtmlTag[Element] = elem
 }
 

@@ -6,8 +6,8 @@ import org.scalajs.dom.html.Div
 import scalatags.JsDom
 import scalatags.JsDom.all._
 
-case class FixtureListWithPastView(fixtureList: FixtureList, date: LocalDate)(
-  fixtureListView: FixtureList => View
+case class FixtureListWithPastView(fixtureList: Seq[FixtureRound], date: LocalDate)(
+  fixtureListView: Seq[FixtureRound] => View
 ) extends View {
   private val (pastFixtures, futureFixtures) =
     fixtureList.partition(_._1.date.compareTo(date) < 0)
