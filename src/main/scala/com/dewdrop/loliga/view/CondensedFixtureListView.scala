@@ -26,10 +26,10 @@ case class CondensedFixtureListView(fixtureList: Seq[FixtureRound],
     fixturesContainer.replaceChild(newFixtureListGroup.render, fixturesContainer.firstChild)
   }
 
-  private def renderTeam(team: Team, host: Boolean): JsDom.TypedTag[Div] =
+  private def renderTeam(team: Team, host: Boolean, round: Int, coveredFixture: Boolean): JsDom.TypedTag[Div] =
     div(
       `class` := "col-xs-3" + (if (host) " text-right" else ""),
-      if (team.name == teamName) b(TeamView(team).view()) else TeamView(team).view()
+      if (team.name == teamName) b(TeamView(team, round, coveredFixture).view()) else TeamView(team, round, coveredFixture).view()
     )
 
   private def renderFixtureRound(fixtureRound: FixtureRound) = {
@@ -39,17 +39,18 @@ case class CondensedFixtureListView(fixtureList: Seq[FixtureRound],
         fixtures
           .filter(f => f.host.name == teamName || f.visitor.name == teamName)
           .map { fixture =>
+            val coveredFixture: Boolean = fixture.participateInRound(round.round)
             div(
-              `class` := s"list-group-item${if (fixture.participateInRound(round.round)) " list-group-item-info" else ""}",
+              `class` := s"list-group-item${if (coveredFixture) " list-group-item-info" else ""}",
               div(
                 `class` := "row",
                 div(
                   `class` := "col-xs-2",
                   span(round.date.toString + " - " + round.date.toWeekDay(false))
                 ),
-                renderTeam(fixture.host, host = true),
+                renderTeam(fixture.host, host = true, round.round, coveredFixture),
                 div(`class` := "col-xs-1 text-center", " - "),
-                renderTeam(fixture.visitor, host = false),
+                renderTeam(fixture.visitor, host = false, round.round, coveredFixture),
                 div(
                   `class` := "col-xs-3",
                   a(href := round.link.address, round.toString)

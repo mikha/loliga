@@ -2,11 +2,11 @@ package com.dewdrop.loliga.view
 
 import com.dewdrop.loliga.model._
 import org.scalajs.dom
-import org.scalajs.dom.html.{Element, Input, Select}
-
-import scala.scalajs.js.Date
+import org.scalajs.dom.html.{Element, Select}
 import scalatags.JsDom
 import scalatags.JsDom.all._
+
+import scala.scalajs.js.Date
 
 case class SeasonView(season: Season, tournament: Tournament) extends View {
   private val fixtureListWithPastView =
@@ -85,12 +85,13 @@ case class TournamentRoundView(round: TournamentRound,
 }
 
 case class FixtureView(fixture: Fixture, round: TournamentRound) extends View {
+  private lazy val coveredFixture: Boolean = fixture.participateInRound(round.round)
   private lazy val host =
-    div(`class` := "col-xs-5 text-right", TeamView(fixture.host).view())
+    div(`class` := "col-xs-5 text-right", TeamView(fixture.host, round.round, coveredFixture).view())
   private lazy val visitor =
-    div(`class` := "col-xs-5", TeamView(fixture.visitor).view())
+    div(`class` := "col-xs-5", TeamView(fixture.visitor, round.round, coveredFixture).view())
   private lazy val elem = div(
-    `class` := s"list-group-item${if (fixture.participateInRound(round.round)) " list-group-item-info" else ""}",
+    `class` := s"list-group-item${if (coveredFixture) " list-group-item-info" else ""}",
     div(
       `class` := "row",
       host,
@@ -102,7 +103,15 @@ case class FixtureView(fixture: Fixture, round: TournamentRound) extends View {
   override def view(): JsDom.all.ConcreteHtmlTag[Element] = elem
 }
 
-case class TeamView(team: Team) extends View {
-  override def view(): JsDom.all.ConcreteHtmlTag[Element] =
-    a(href := team.link.address, team.name)
+case class TeamView(team: Team, round: Int, coveredFixture: Boolean) extends View {
+  override def view(): JsDom.all.ConcreteHtmlTag[Element] = {
+    team.maybeRenderNote(includeNode = coveredFixture)
+      .foldLeft[JsDom.all.ConcreteHtmlTag[Element]](a(
+        href := team.link.address,
+        `class` := (if (team.euroPlayerInRound(round)) "text-success" else ""),
+        team.name
+      )) {
+        case (a, note) => span(a, note)
+      }
+  }
 }

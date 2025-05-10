@@ -14,31 +14,31 @@ object Data {
 
   object SeasonData extends Season {
     override val name = "LOLiga: 23-й сезон"
-    override val version = "2.1"
+    override val version = "2.2"
     override val participantsOnly: Boolean = false
 
     private object TeamsWithMinutes {
       // @formatter:off
       val athletic: Team = Team("Атлетик Бильбао", Link.team(792, "d89f5fb16937bf7422d14ff627b98956"), euroPlayer = true, participate = false)
-      val atletico: Team = Team("Атлетико Мадрид", Link.team(793, "b4b7dd00ecd23896be7cbf417b05a814"), euroPlayer = false, participate = false)
+      val atletico: Team = Team("Атлетико Мадрид", Link.team(793, "b4b7dd00ecd23896be7cbf417b05a814"), euroPlayer = false, participate = true)
       val barcelona: Team = Team("Барселона", Link.team(795, "681f94e463bd2ae01791e493c5a4bfc7"), euroPlayer = true, participate = false)
-      val betis: Team = Team("Бетис", Link.team(796, "9abe7d8e6a577a7cdf7c3f0b58cc500a"), euroPlayer = false, participate = false)
-      val valencia: Team = Team("Валенсия", Link.team(826, "4922099bb4660233682c3ad5ee406398"), euroPlayer = true, participate = false)
-      val levante: Team = Team("Леванте", Link.team(809, "fae70910c570081ec974c7d139b8b34c"), euroPlayer = false, participate = false)
-      val malaga: Team = Team("Малага", Link.team(810, "0a981fec6985c2273b206fe62f192aee"), euroPlayer = true, participate = false)
-      val mallorca: Team = Team("Мальорка", Link.team(811, "0295cbc439503a3257ab3807555bda07"), euroPlayer = false, participate = false)
+      val betis: Team = Team("Бетис", Link.team(796, "9abe7d8e6a577a7cdf7c3f0b58cc500a"), euroPlayer = false, participate = true)
+      val valencia: Team = Team("Валенсия", Link.team(826, "4922099bb4660233682c3ad5ee406398"), euroPlayer = true, participate = true)
+      val levante: Team = Team("Леванте", Link.team(809, "fae70910c570081ec974c7d139b8b34c"), euroPlayer = false, participate = true)
+      val malaga: Team = Team("Малага", Link.team(810, "0a981fec6985c2273b206fe62f192aee"), euroPlayer = true, participate = true)
+      val mallorca: Team = Team("Мальорка", Link.team(811, "0295cbc439503a3257ab3807555bda07"), euroPlayer = false, participate = true)
       val murcia: Team = Team("Мурсия", Link.team(1635, "57f3d18dd2d4f8ac0015b0264d211454"), euroPlayer = false, participate = false)
       val osasuna: Team = Team("Осасуна", Link.team(814, "dc5e42bdcd014dd50b4565c4befc9f1f"), euroPlayer = false, participate = false)
       val rayo: Team = Team("Райо Вальекано", Link.team(817, "582ec131d7b8994660f2898a62589f30"), euroPlayer = false, participate = false)
-      val real: Team = Team("Реал Мадрид", Link.team(818, "534bfaa8d12b5650da603d7b207fd8e8"), euroPlayer = false, participate = false)
-      val sociedad: Team = Team("Реал Сосьедад", Link.team(819, "798a87a66ea104894b7fdd4dd8421eb5"), euroPlayer = false, participate = false)
-      val jaen: Team = Team("Реал Хаен", Link.team(1622, "ed07be3e312dc1f9198fc6dfae503949"), euroPlayer = false, participate = false)
-      val sevilla: Team = Team("Севилья", Link.team(822, "192038a87c9d2a4feb812b2ef9f09d3f"), euroPlayer = false, participate = false)
-      val celta: Team = Team("Сельта", Link.team(797, "34c0d53160b454e243beb4e33f34c326"), euroPlayer = false, participate = false)
-      val tenerife: Team = Team("Тенерифе", Link.team(824, "2dfcbe307e5882a3cf6daa5c432389fa"), euroPlayer = false, participate = false)
-      val huesca: Team = Team("Уэска", Link.team(821, "d0e0f758987648135d418c3904f2ed86"), euroPlayer = false, participate = false)
-      val getafe: Team = Team("Хетафе", Link.team(806, "208d2036658324079a53c158e73cdf15"), euroPlayer = false, participate = false)
-      val espanyol: Team = Team("Эспаньол", Link.team(804, "51c788a7a8e248390ab972bce9b26854"), euroPlayer = true, participate = false)
+      val real: Team = Team("Реал Мадрид", Link.team(818, "534bfaa8d12b5650da603d7b207fd8e8"), euroPlayer = false, participate = true)
+      val sociedad: Team = Team("Реал Сосьедад", Link.team(819, "798a87a66ea104894b7fdd4dd8421eb5"), euroPlayer = false, participate = true)
+      val jaen: Team = Team("Реал Хаен", Link.team(1622, "ed07be3e312dc1f9198fc6dfae503949"), euroPlayer = false, participate = true)
+      val sevilla: Team = Team("Севилья", Link.team(822, "192038a87c9d2a4feb812b2ef9f09d3f"), euroPlayer = false, participate = true)
+      val celta: Team = Team("Сельта", Link.team(797, "34c0d53160b454e243beb4e33f34c326"), euroPlayer = false, participate = true)
+      val tenerife: Team = Team("Тенерифе", Link.team(824, "2dfcbe307e5882a3cf6daa5c432389fa"), euroPlayer = false, participate = true, extraNote = "не использует установок")
+      val huesca: Team = Team("Уэска", Link.team(821, "d0e0f758987648135d418c3904f2ed86"), euroPlayer = false, participate = true)
+      val getafe: Team = Team("Хетафе", Link.team(806, "208d2036658324079a53c158e73cdf15"), euroPlayer = false, participate = true)
+      val espanyol: Team = Team("Эспаньол", Link.team(804, "51c788a7a8e248390ab972bce9b26854"), euroPlayer = true, participate = true)
       // @formatter:on
     }
     val spain: Team = Team.nationTeam("Испания", Link.nationTeam(172, "f4ae367fc9c7fdaa0f0c5ba76e60a6e2"))
@@ -568,7 +568,7 @@ object Data {
       TournamentRound(euro, round = 0, date = LocalDate(year = 2025, month = 11, day = 12), link = Link.noLink) -> Seq(),
       TournamentRound(other, round = 0, date = LocalDate(year = 2025, month = 11, day = 14), link = Link.noLink) -> Seq(),
       TournamentRound(other, round = 0, date = LocalDate(year = 2025, month = 11, day = 17), link = Link.noLink) -> Seq(),
-      TournamentRound(euro, round = 0, date = LocalDate(year = 2025, month = 11, day = 18), link = Link.noLink) -> Seq(),
+      TournamentRound(euro, round = 0, date = LocalDate(year = 2025, month = 11, day = 19), link = Link.noLink) -> Seq(),
     ).sortBy(_._1.date)
   }
 
