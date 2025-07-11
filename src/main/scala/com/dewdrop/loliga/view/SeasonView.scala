@@ -14,7 +14,7 @@ case class SeasonView(season: Season, tournament: Tournament) extends View {
   private val teamSelector = TeamSelector(season.teams).view().render
   private val fixtureListContainer = div(
     fixtureListWithPastView(
-      fixtures => FixtureListView(fixtures.filter(tournamentOnlyFixture), season.participantsOnly)
+      (fixtures, _) => FixtureListView(fixtures.filter(tournamentOnlyFixture), season.participantsOnly)
     ).view()
   ).render
 
@@ -28,11 +28,11 @@ case class SeasonView(season: Season, tournament: Tournament) extends View {
       val newView =
         if (teamName.nonEmpty)
           fixtureListWithPastView(
-            fixtures => CondensedFixtureListView(fixtures, teamName, tournament)
+            (fixtures, pastFixtures) => CondensedFixtureListView(fixtures, teamName, tournament, pastFixtures)
           )
         else
           fixtureListWithPastView(
-            fixtures => FixtureListView(fixtures.filter(tournamentOnlyFixture), season.participantsOnly)
+            (fixtures, _) => FixtureListView(fixtures.filter(tournamentOnlyFixture), season.participantsOnly)
           )
       fixtureListContainer.appendChild(newView.view().render)
     }
@@ -63,7 +63,7 @@ case class FixtureListView(fixtureList: Seq[FixtureRound], participantsOnly: Boo
       )
   }
   private val elem =
-    div(paddingTop := "20px", for (child <- children) yield child.view())
+    div(for (child <- children) yield child.view())
 
   override def view(): JsDom.all.ConcreteHtmlTag[Element] = elem
 }

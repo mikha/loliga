@@ -8,7 +8,8 @@ import scalatags.JsDom.all._
 
 case class CondensedFixtureListView(fixtureList: Seq[FixtureRound],
                                     teamName: String,
-                                    tournament: Tournament
+                                    tournament: Tournament,
+                                    pastFixtures: Boolean
                                    ) extends View {
   private val allFixturesFlag = input(`type` := "checkbox").render
 
@@ -144,16 +145,21 @@ case class CondensedFixtureListView(fixtureList: Seq[FixtureRound],
     div(`class` := "list-group", fixtures.flatMap(renderFixtureRound))
 
   override def view(): JsDom.TypedTag[Div] = {
-    allFixturesFlag.onchange = (_: dom.Event) => {
-      updateAllFixtureFlag(allFixturesFlag.checked)
+    if (pastFixtures) {
+      div(`class` := "container-fluid", fixturesContainer)
     }
-    div(
-      `class` := "container-fluid",
+    else {
+      allFixturesFlag.onchange = (_: dom.Event) => {
+        updateAllFixtureFlag(allFixturesFlag.checked)
+      }
       div(
-        `class` := "checkbox",
-        label(allFixturesFlag, "Все игровые дни"),
-      ),
-      fixturesContainer
-    )
+        `class` := "container-fluid",
+        div(
+          `class` := "checkbox",
+          label(allFixturesFlag, "Все игровые дни"),
+        ),
+        fixturesContainer
+      )
+    }
   }
 }

@@ -14,7 +14,7 @@ object Data {
 
   object SeasonData extends Season {
     override val name = "LOLiga: 23-й сезон"
-    override val version = "2.2"
+    override val version = "2.3"
     override val participantsOnly: Boolean = false
 
     private object TeamsWithMinutes {
@@ -140,7 +140,7 @@ object Data {
         Fixture(betis, sociedad),
         Fixture(huesca, mallorca),
       ),
-      TournamentRound(other, round = 0, date = LocalDate(year = 2025, month = 6, day = 10), link = Link.noLink) -> Seq(
+      TournamentRound(nation, round = 0, date = LocalDate(year = 2025, month = 6, day = 10), link = Link.noLink) -> Seq(
         Fixture(spainU21, otherNation),
       ),
       TournamentRound(euro, round = 0, date = LocalDate(year = 2025, month = 6, day = 11), link = Link.noLink) -> Seq(),
