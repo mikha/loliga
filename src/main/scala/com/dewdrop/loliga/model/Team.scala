@@ -1,5 +1,6 @@
 package com.dewdrop.loliga.model
 
+import com.dewdrop.loliga.model.Team.TupleConversions
 import org.scalajs.dom.html.Element
 import scalatags.JsDom
 import scalatags.JsDom.all._
@@ -20,6 +21,12 @@ case class Team(name: String, link: Link, nationTeam: Boolean, roundEuroPlayer: 
       }
 
   lazy val participant: Boolean = roundParticipate.exists(_.participate)
+
+  def notEuroPlayerFromRound(round: Int): Team =
+    copy(roundEuroPlayer = roundEuroPlayer :+ (round -> false).asRoundEuroPlayer)
+
+  def notParticipantPlayerFromRound(round: Int): Team =
+    copy(roundParticipate = roundParticipate :+ (round -> false).asRoundParticipate)
 }
 
 case class RoundParticipate(fromRound: Int, participate: Boolean)
