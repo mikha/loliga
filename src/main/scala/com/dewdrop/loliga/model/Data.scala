@@ -21,9 +21,9 @@ object Data {
       // @formatter:off
       val athletic: Team = Team("Атлетик Бильбао", Link.team(792, "d89f5fb16937bf7422d14ff627b98956"), euroPlayer = true, participate = false).notEuroPlayerFromRound(14)
       val atletico: Team = Team("Атлетико Мадрид", Link.team(793, "b4b7dd00ecd23896be7cbf417b05a814"), euroPlayer = false, participate = true)
-      val barcelona: Team = Team("Барселона", Link.team(795, "681f94e463bd2ae01791e493c5a4bfc7"), euroPlayer = true, participate = false)
+      val barcelona: Team = Team("Барселона", Link.team(795, "681f94e463bd2ae01791e493c5a4bfc7"), euroPlayer = true, participate = false).notEuroPlayerFromRound(32)
       val betis: Team = Team("Бетис", Link.team(796, "9abe7d8e6a577a7cdf7c3f0b58cc500a"), euroPlayer = false, participate = true)
-      val valencia: Team = Team("Валенсия", Link.team(826, "4922099bb4660233682c3ad5ee406398"), euroPlayer = true, participate = true)
+      val valencia: Team = Team("Валенсия", Link.team(826, "4922099bb4660233682c3ad5ee406398"), euroPlayer = true, participate = true).notEuroPlayerFromRound(32)
       val levante: Team = Team("Леванте", Link.team(809, "fae70910c570081ec974c7d139b8b34c"), euroPlayer = false, participate = true)
       val malaga: Team = Team("Малага", Link.team(810, "0a981fec6985c2273b206fe62f192aee"), euroPlayer = true, participate = true)
       val mallorca: Team = Team("Мальорка", Link.team(811, "0295cbc439503a3257ab3807555bda07"), euroPlayer = false, participate = true)
@@ -38,7 +38,7 @@ object Data {
       val tenerife: Team = Team("Тенерифе", Link.team(824, "2dfcbe307e5882a3cf6daa5c432389fa"), euroPlayer = false, participate = true, extraNote = "не использует установок")
       val huesca: Team = Team("Уэска", Link.team(821, "d0e0f758987648135d418c3904f2ed86"), euroPlayer = false, participate = true)
       val getafe: Team = Team("Хетафе", Link.team(806, "208d2036658324079a53c158e73cdf15"), euroPlayer = false, participate = true)
-      val espanyol: Team = Team("Эспаньол", Link.team(804, "51c788a7a8e248390ab972bce9b26854"), euroPlayer = true, participate = true)
+      val espanyol: Team = Team("Эспаньол", Link.team(804, "51c788a7a8e248390ab972bce9b26854"), euroPlayer = true, participate = true).notEuroPlayerFromRound(32)
       // @formatter:on
     }
     val spain: Team = Team.nationTeam("Испания", Link.nationTeam(172, "f4ae367fc9c7fdaa0f0c5ba76e60a6e2"))
