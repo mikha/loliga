@@ -14,7 +14,7 @@ object Data {
 
   object SeasonData extends Season {
     override val name = "LOLiga: 23-й сезон"
-    override val version = "2.4"
+    override val version = "2.5"
     override val participantsOnly: Boolean = false
 
     private object TeamsWithMinutes {
