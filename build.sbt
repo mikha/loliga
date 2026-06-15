@@ -2,7 +2,7 @@ enablePlugins(ScalaJSPlugin)
 
 name := "LOLiga"
 
-scalaVersion := "2.13.4"
+scalaVersion := "2.13.18"
 
 scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature")
 
