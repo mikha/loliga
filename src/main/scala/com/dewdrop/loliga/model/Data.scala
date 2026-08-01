@@ -14,13 +14,13 @@ object Data {
 
   object SeasonData extends Season {
     override val name = "LOLiga: 24-й сезон"
-    override val version = "3.1"
+    override val version = "3.2"
     override val participantsOnly: Boolean = false
 
     private object TeamsWithMinutes {
       // @formatter:off
       val athletic: Team = Team("Атлетик Бильбао", Link.team(792, "d89f5fb16937bf7422d14ff627b98956"), euroPlayer = false, participate = false)
-      val atletico: Team = Team("Атлетико Мадрид", Link.team(793, "b4b7dd00ecd23896be7cbf417b05a814"), euroPlayer = false, participate = false)
+      val atletico: Team = Team("Атлетико Мадрид", Link.team(793, "b4b7dd00ecd23896be7cbf417b05a814"), euroPlayer = true, participate = false)
       val barcelona: Team = Team("Барселона", Link.team(795, "681f94e463bd2ae01791e493c5a4bfc7"), euroPlayer = true, participate = false)
       val betis: Team = Team("Бетис", Link.team(796, "9abe7d8e6a577a7cdf7c3f0b58cc500a"), euroPlayer = false, participate = false)
       val valencia: Team = Team("Валенсия", Link.team(826, "4922099bb4660233682c3ad5ee406398"), euroPlayer = true, participate = false)
