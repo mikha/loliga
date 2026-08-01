@@ -14,7 +14,7 @@ object Data {
 
   object SeasonData extends Season {
     override val name = "LOLiga: 24-й сезон"
-    override val version = "3.0"
+    override val version = "3.1"
     override val participantsOnly: Boolean = false
 
     private object TeamsWithMinutes {
@@ -182,7 +182,10 @@ object Data {
         Fixture(atletico, athletic),
         Fixture(sevilla, malaga),
       ),
-      TournamentRound(nation, round = 0, date = LocalDate(year = 2026, month = 8, day = 11), link = Link.noLink) -> Seq(),
+      TournamentRound(nation, round = 0, date = LocalDate(year = 2026, month = 8, day = 11), link = Link.noLink) -> Seq(
+        Fixture(spain, otherNation),
+        Fixture(spainU21, otherNation),
+      ),
       TournamentRound(euro, round = 0, date = LocalDate(year = 2026, month = 8, day = 12), link = Link.noLink) -> Seq(),
       TournamentRound(loliga, round = 11, date = LocalDate(year = 2026, month = 8, day = 14), link = Link.round(j = 49, n = 11, z = s"464eac516b36f5fcfe4c458bb0b66606")) -> Seq(
         Fixture(compostela, betis),
@@ -222,7 +225,10 @@ object Data {
         Fixture(tenerife, rayo),
       ),
       TournamentRound(other, round = 0, date = LocalDate(year = 2026, month = 8, day = 24), link = Link.noLink) -> Seq(),
-      TournamentRound(nation, round = 0, date = LocalDate(year = 2026, month = 8, day = 25), link = Link.noLink) -> Seq(),
+      TournamentRound(nation, round = 0, date = LocalDate(year = 2026, month = 8, day = 25), link = Link.noLink) -> Seq(
+        Fixture(spain, otherNation),
+        Fixture(spainU21, otherNation),
+      ),
       TournamentRound(euro, round = 0, date = LocalDate(year = 2026, month = 8, day = 26), link = Link.noLink) -> Seq(),
       TournamentRound(loliga, round = 14, date = LocalDate(year = 2026, month = 8, day = 28), link = Link.round(j = 49, n = 14, z = s"5d597f3888a92a18aaea5347096e6302")) -> Seq(
         Fixture(osasuna, espanyol),
@@ -280,7 +286,9 @@ object Data {
       ),
       TournamentRound(cup, round = 0, date = LocalDate(year = 2026, month = 9, day = 18), link = Link.noLink) -> Seq(),
       TournamentRound(euro, round = 0, date = LocalDate(year = 2026, month = 9, day = 21), link = Link.noLink) -> Seq(),
-      TournamentRound(nation, round = 0, date = LocalDate(year = 2026, month = 9, day = 22), link = Link.noLink) -> Seq(),
+      TournamentRound(nation, round = 0, date = LocalDate(year = 2026, month = 9, day = 22), link = Link.noLink) -> Seq(
+        Fixture(spainU21, otherNation),
+      ),
       TournamentRound(loliga, round = 18, date = LocalDate(year = 2026, month = 9, day = 23), link = Link.round(j = 49, n = 18, z = s"039b62edc03ebf874aa94384a228980b")) -> Seq(
         Fixture(osasuna, atletico),
         Fixture(compostela, sevilla),
@@ -320,7 +328,10 @@ object Data {
         Fixture(osasuna, tenerife),
       ),
       TournamentRound(other, round = 0, date = LocalDate(year = 2026, month = 10, day = 5), link = Link.noLink) -> Seq(),
-      TournamentRound(nation, round = 0, date = LocalDate(year = 2026, month = 10, day = 6), link = Link.noLink) -> Seq(),
+      TournamentRound(nation, round = 0, date = LocalDate(year = 2026, month = 10, day = 6), link = Link.noLink) -> Seq(
+        Fixture(spain, otherNation),
+        Fixture(spainU21, otherNation),
+      ),
       TournamentRound(euro, round = 0, date = LocalDate(year = 2026, month = 10, day = 7), link = Link.noLink) -> Seq(),
       TournamentRound(loliga, round = 21, date = LocalDate(year = 2026, month = 10, day = 9), link = Link.round(j = 49, n = 21, z = s"9c95978287651bbb2fd47804dc4e18e7")) -> Seq(
         Fixture(betis, osasuna),
@@ -360,7 +371,9 @@ object Data {
         Fixture(valencia, atletico),
         Fixture(levante, sevilla),
       ),
-      TournamentRound(nation, round = 0, date = LocalDate(year = 2026, month = 10, day = 20), link = Link.noLink) -> Seq(),
+      TournamentRound(nation, round = 0, date = LocalDate(year = 2026, month = 10, day = 20), link = Link.noLink) -> Seq(
+        Fixture(spain, otherNation),
+      ),
       TournamentRound(cup, round = 0, date = LocalDate(year = 2026, month = 10, day = 21), link = Link.noLink) -> Seq(),
       TournamentRound(euro, round = 0, date = LocalDate(year = 2026, month = 10, day = 23), link = Link.noLink) -> Seq(),
       TournamentRound(loliga, round = 24, date = LocalDate(year = 2026, month = 10, day = 26), link = Link.round(j = 49, n = 24, z = s"1eb29c96fbd2456948e918a2ac2bf0f8")) -> Seq(
@@ -389,7 +402,10 @@ object Data {
         Fixture(depor, atletico),
         Fixture(rayo, sevilla),
       ),
-      TournamentRound(nation, round = 0, date = LocalDate(year = 2026, month = 11, day = 3), link = Link.noLink) -> Seq(),
+      TournamentRound(nation, round = 0, date = LocalDate(year = 2026, month = 11, day = 3), link = Link.noLink) -> Seq(
+        Fixture(spain, otherNation),
+        Fixture(spainU21, otherNation),
+      ),
       TournamentRound(other, round = 0, date = LocalDate(year = 2026, month = 11, day = 4), link = Link.noLink) -> Seq(),
       TournamentRound(loliga, round = 26, date = LocalDate(year = 2026, month = 11, day = 6), link = Link.round(j = 49, n = 26, z = s"cc0acf9464434394cc1e82b629937d90")) -> Seq(
         Fixture(osasuna, valencia),
@@ -429,7 +445,9 @@ object Data {
         Fixture(betis, sociedad),
         Fixture(sevilla, tenerife),
       ),
-      TournamentRound(nation, round = 0, date = LocalDate(year = 2026, month = 11, day = 17), link = Link.noLink) -> Seq(),
+      TournamentRound(nation, round = 0, date = LocalDate(year = 2026, month = 11, day = 17), link = Link.noLink) -> Seq(
+        Fixture(spain, otherNation),
+      ),
       TournamentRound(euro, round = 0, date = LocalDate(year = 2026, month = 11, day = 18), link = Link.noLink) -> Seq(),
       TournamentRound(loliga, round = 29, date = LocalDate(year = 2026, month = 11, day = 20), link = Link.round(j = 49, n = 29, z = s"cc6d44a81423cfb511876d86f5637793")) -> Seq(
         Fixture(rayo, osasuna),
@@ -469,7 +487,10 @@ object Data {
         Fixture(malaga, atletico),
         Fixture(palmas, sevilla),
       ),
-      TournamentRound(nation, round = 0, date = LocalDate(year = 2026, month = 12, day = 1), link = Link.noLink) -> Seq(),
+      TournamentRound(nation, round = 0, date = LocalDate(year = 2026, month = 12, day = 1), link = Link.noLink) -> Seq(
+        Fixture(spain, otherNation),
+        Fixture(spainU21, otherNation),
+      ),
       TournamentRound(loliga, round = 32, date = LocalDate(year = 2026, month = 12, day = 2), link = Link.round(j = 49, n = 32, z = s"04fd6e4d8a02177b9785ac592e25168e")) -> Seq(
         Fixture(valencia, compostela),
         Fixture(real, palmas),
@@ -509,7 +530,9 @@ object Data {
         Fixture(real, tenerife),
       ),
       TournamentRound(euro, round = 0, date = LocalDate(year = 2026, month = 12, day = 14), link = Link.noLink) -> Seq(),
-      TournamentRound(nation, round = 0, date = LocalDate(year = 2026, month = 12, day = 15), link = Link.noLink) -> Seq(),
+      TournamentRound(nation, round = 0, date = LocalDate(year = 2026, month = 12, day = 15), link = Link.noLink) -> Seq(
+        Fixture(spain, otherNation),
+      ),
       TournamentRound(loliga, round = 35, date = LocalDate(year = 2026, month = 12, day = 16), link = Link.round(j = 49, n = 35, z = s"a747d358541042b7bcf51dc31cc47d9a")) -> Seq(
         Fixture(mallorca, osasuna),
         Fixture(malaga, compostela),
@@ -565,7 +588,9 @@ object Data {
       TournamentRound(other, round = 0, date = LocalDate(year = 2027, month = 1, day = 13), link = Link.noLink) -> Seq(),
       TournamentRound(euro, round = 0, date = LocalDate(year = 2027, month = 1, day = 15), link = Link.noLink) -> Seq(),
       TournamentRound(other, round = 0, date = LocalDate(year = 2027, month = 1, day = 18), link = Link.noLink) -> Seq(),
-      TournamentRound(nation, round = 0, date = LocalDate(year = 2027, month = 1, day = 19), link = Link.noLink) -> Seq(),
+      TournamentRound(nation, round = 0, date = LocalDate(year = 2027, month = 1, day = 19), link = Link.noLink) -> Seq(
+        Fixture(spain, otherNation),
+      ),
       TournamentRound(other, round = 0, date = LocalDate(year = 2027, month = 1, day = 20), link = Link.noLink) -> Seq(),
       TournamentRound(euro, round = 0, date = LocalDate(year = 2027, month = 1, day = 22), link = Link.noLink) -> Seq(),
     ).sortBy(_._1.date)
