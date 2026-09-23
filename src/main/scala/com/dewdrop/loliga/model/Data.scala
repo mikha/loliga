@@ -14,7 +14,7 @@ object Data {
 
   object SeasonData extends Season {
     override val name = "LOLiga: 24-й сезон"
-    override val version = "3.2"
+    override val version = "3.3"
     override val participantsOnly: Boolean = false
 
     private object TeamsWithMinutes {
@@ -23,7 +23,7 @@ object Data {
       val atletico: Team = Team("Атлетико Мадрид", Link.team(793, "b4b7dd00ecd23896be7cbf417b05a814"), euroPlayer = true, participate = false)
       val barcelona: Team = Team("Барселона", Link.team(795, "681f94e463bd2ae01791e493c5a4bfc7"), euroPlayer = true, participate = false)
       val betis: Team = Team("Бетис", Link.team(796, "9abe7d8e6a577a7cdf7c3f0b58cc500a"), euroPlayer = false, participate = false)
-      val valencia: Team = Team("Валенсия", Link.team(826, "4922099bb4660233682c3ad5ee406398"), euroPlayer = true, participate = false)
+      val valencia: Team = Team("Валенсия", Link.team(826, "4922099bb4660233682c3ad5ee406398"), euroPlayer = true, participate = false).notEuroPlayerFromRound(11)
       val depor: Team = Team("Депортиво", Link.team(800, "5290c3ac1819cf6051d732f2df1b7484"), euroPlayer = false, participate = false)
       val compostela: Team = Team("Компостела", Link.team(799, "91c0f46a5dd8425ad62fefaad68e2035"), euroPlayer = false, participate = false)
       val palmas: Team = Team("Лас Пальмас", Link.team(807, "1f0b7594a04292d10f25ce0607c6a3b2"), euroPlayer = false, participate = false)
@@ -473,7 +473,7 @@ object Data {
         Fixture(real, sociedad),
         Fixture(levante, tenerife),
       ),
-      TournamentRound(other, round = 0, date = LocalDate(year = 2026, month = 11, day = 25), link = Link.noLink) -> Seq(),
+      TournamentRound(cup, round = 0, date = LocalDate(year = 2026, month = 11, day = 25), link = Link.noLink) -> Seq(),
       TournamentRound(euro, round = 0, date = LocalDate(year = 2026, month = 11, day = 27), link = Link.noLink) -> Seq(),
       TournamentRound(loliga, round = 31, date = LocalDate(year = 2026, month = 11, day = 30), link = Link.round(j = 49, n = 31, z = s"8a2e2e77533374504b96f735df6425d6")) -> Seq(
         Fixture(compostela, osasuna),
