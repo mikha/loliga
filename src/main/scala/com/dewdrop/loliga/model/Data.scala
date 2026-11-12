@@ -14,7 +14,7 @@ object Data {
 
   object SeasonData extends Season {
     override val name = "LOLiga: 24-й сезон"
-    override val version = "3.4"
+    override val version = "3.5"
     override val participantsOnly: Boolean = false
 
     private object TeamsWithMinutes {
@@ -28,12 +28,12 @@ object Data {
       val compostela: Team = Team("Компостела", Link.team(799, "91c0f46a5dd8425ad62fefaad68e2035"), euroPlayer = false, participate = false)
       val palmas: Team = Team("Лас Пальмас", Link.team(807, "1f0b7594a04292d10f25ce0607c6a3b2"), euroPlayer = false, participate = false)
       val levante: Team = Team("Леванте", Link.team(809, "fae70910c570081ec974c7d139b8b34c"), euroPlayer = false, participate = false)
-      val malaga: Team = Team("Малага", Link.team(810, "0a981fec6985c2273b206fe62f192aee"), euroPlayer = true, participate = false)
+      val malaga: Team = Team("Малага", Link.team(810, "0a981fec6985c2273b206fe62f192aee"), euroPlayer = true, participate = false).notEuroPlayerFromRound(25)
       val mallorca: Team = Team("Мальорка", Link.team(811, "0295cbc439503a3257ab3807555bda07"), euroPlayer = false, participate = false)
       //      val murcia: Team = Team("Мурсия", Link.team(1635, "57f3d18dd2d4f8ac0015b0264d211454"), euroPlayer = false, participate = false)
       val osasuna: Team = Team("Осасуна", Link.team(814, "dc5e42bdcd014dd50b4565c4befc9f1f"), euroPlayer = false, participate = false)
       val rayo: Team = Team("Райо Вальекано", Link.team(817, "582ec131d7b8994660f2898a62589f30"), euroPlayer = false, participate = false)
-      val real: Team = Team("Реал Мадрид", Link.team(818, "534bfaa8d12b5650da603d7b207fd8e8"), euroPlayer = true, participate = false)
+      val real: Team = Team("Реал Мадрид", Link.team(818, "534bfaa8d12b5650da603d7b207fd8e8"), euroPlayer = true, participate = false).notEuroPlayerFromRound(25)
       val sociedad: Team = Team("Реал Сосьедад", Link.team(819, "798a87a66ea104894b7fdd4dd8421eb5"), euroPlayer = false, participate = false)
       //      val jaen: Team = Team("Реал Хаен", Link.team(1622, "ed07be3e312dc1f9198fc6dfae503949"), euroPlayer = false, participate = false)
       val sevilla: Team = Team("Севилья", Link.team(822, "192038a87c9d2a4feb812b2ef9f09d3f"), euroPlayer = false, participate = false)
